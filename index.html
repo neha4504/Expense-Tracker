@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expense Tracker</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-logo">Delta Expense</div>
+        <ul class="nav-links">
+            <li><a href="#home" class="nav-link active" onclick="showPage('home')">Home</a></li>
+            <li><a href="#about" class="nav-link" onclick="showPage('about')">About</a></li>
+            <li><a href="#contact" class="nav-link" onclick="showPage('contact')">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <h1>Track Your Expenses Effortlessly</h1>
+        <p>Manage your income and expenses, visualize spending, and stay in control of your finances.</p>
+        <a href="#tracker" class="hero-btn" onclick="showPage('home')">Get Started</a>
+    </section>
+
+    <!-- Main Content Pages -->
+    <div class="pages">
+        <!-- Home/Tracker Page -->
+        <div id="page-home" class="page active">
+            <div class="container">
+                <h2>Expense Tracker</h2>
+                <form id="transaction-form">
+                    <input type="text" id="desc" placeholder="Description" required>
+                    <input type="number" id="amount" placeholder="Amount" required>
+                    <label for="type" class="visually-hidden">Type</label>
+                    <select id="type" title="Type">
+                        <option value="income">Income</option>
+                        <option value="expense">Expense</option>
+                    </select>
+                    <button type="submit">Add</button>
+                </form>
+                <div class="summary">
+                    <p>Total Income: <span id="total-income">0</span></p>
+                    <p>Total Expense: <span id="total-expense">0</span></p>
+                    <p>Balance: <span id="balance">0</span></p>
+                </div>
+                <h3>Transactions</h3>
+                <ul id="transactions"></ul>
+                <h3>Expense Breakdown</h3>
+                <canvas id="pieChart" width="400" height="400"></canvas>
+            </div>
+        </div>
+        <!-- About Page -->
+        <div id="page-about" class="page">
+            <div class="container">
+                <h2>About</h2>
+                <p>This Expense Tracker is a simple web app to help you manage your finances. Add your income and expenses, and visualize your spending with a pie chart. Built with HTML, CSS, and JavaScript.</p>
+            </div>
+        </div>
+        <!-- Contact Page -->
+        <div id="page-contact" class="page">
+            <div class="container">
+                <h2>Contact</h2>
+                <p>For feedback or support, email: <a href="mailto:support@deltaexpense.com">support@deltaexpense.com</a></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2025 Delta Expense. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Simple page navigation
+        function showPage(page) {
+            document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+            document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
+            document.getElementById('page-' + page).classList.add('active');
+            document.querySelector('.nav-link[href="#' + page + '"]').classList.add('active');
+            // Scroll to top for better UX
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        // Default to home
+        showPage('home');
+    </script>
+</body>
