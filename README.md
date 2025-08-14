@@ -13,10 +13,10 @@ A simple and responsive Expense Tracker web app built with **HTML**, **CSS**, an
 - **Frontend:** HTML, CSS, JavaScript
 - **Charts:** Chart.js
 
-##Example inputs to try:
-- **Description: Salary, Amount: 50000, Type: income
-- **Description: Rent, Amount: 15000, Type: expense
-- **Description: Coffee, Amount: 300, Type: expense 
+## Example inputs to try:
+- **Description:** Salary, Amount: 50000, Type: income
+- **Description:** Rent, Amount: 15000, Type: expense
+- **Description:** Coffee, Amount: 300, Type: expense 
 
 ## Future Improvements
 - Data persistence using LocalStorage or a database
